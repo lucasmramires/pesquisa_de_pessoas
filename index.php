@@ -4,7 +4,6 @@ include_once 'php_action/db_connect.php';
 
 //header
 include_once 'includes/header.php';
-
 ?>
 
 <div class="row">
@@ -13,49 +12,49 @@ include_once 'includes/header.php';
         <form action="index.php">
             <p>
             <label>
-                <input class="with-gap" name="altura" type="radio"/ value="3">
+                <input class="with-gap" name="altura" type="radio" value="alto">
                 <span>Altos</span>
             </label>
             <label>
-                <input class="with-gap" name="altura" type="radio" value="2"/>
+                <input class="with-gap" name="altura" type="radio" value="medio"/>
                 <span>Medianos</span>
             </label>
             <label>
-                <input class="with-gap" name="altura" type="radio" value="1"/>
+                <input class="with-gap" name="altura" type="radio" value="baixo"/>
                 <span>Baixos</span>
             </label>
             </p>
             <p>
                 <label>
-                    <input class="with-gap" name="peso" type="radio" value="3"/>
+                    <input class="with-gap" name="peso" type="radio" value="acima_peso"/>
                     <span>Acima do Peso</span>
                 </label>
                 <label>
-                    <input class="with-gap" name="peso" type="radio" value="2"/>
+                    <input class="with-gap" name="peso" type="radio" value="peso_ideal"/>
                     <span>Peso Ideal</span>
                 </label>
                 <label>
-                    <input class="with-gap" name="peso" type="radio" value="1"/>
+                    <input class="with-gap" name="peso" type="radio" value="baixo_peso"/>
                     <span>Abaixo do Peso</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input class="with-gap" name="intolerancia" type="radio" value="1"/>
+                    <input class="with-gap" name="intolerancia" type="radio" value="intolerante"/>
                     <span>Intolerante</span>
                 </label>
                 <label>
-                    <input class="with-gap" name="intolerancia" type="radio" value="0"/>
+                    <input class="with-gap" name="intolerancia" type="radio" value="nao_intolerante"/>
                     <span>Não Intolerante</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input class="with-gap" name="atleta" type="radio" value="1"/>
+                    <input class="with-gap" name="atleta" type="radio" value="atleta"/>
                     <span>É atleta</span>
                 </label>
                 <label>
-                    <input class="with-gap" name="atleta" type="radio" value="0"/>
+                    <input class="with-gap" name="atleta" type="radio" value="nao_atleta"/>
                     <span>Não é Atleta</span>
                 </label>
             </p>
@@ -82,7 +81,7 @@ include_once 'includes/header.php';
                 <tr>
                     <td><?php echo $dados['nome']; ?></td>
                     <td><?php echo $dados['altura']; ?></td>
-                    <td><?php echo $dados['intolerancia']; ?></td>
+                    <td><?php echo ($dados['intolerancia'] == 0) ? "Não" : "Sim"; ?></td>
                     <td><?php echo $dados['peso']; ?></td>
                     <td><?php echo $dados['atleta']; ?></td>
                 </tr>
@@ -109,15 +108,15 @@ if(!empty($parametros)):
 
         switch($parametros['altura']):
 
-            case 1:
+            case 'baixo':
                 $sql.=" and altura <= 1.59";
             break;
 
-            case 2:
+            case 'medio':
                 $sql.=" and altura >= 1.60 and altura <= 1.79";
             break;
 
-            case 3:
+            case 'alto':
                 $sql.=" and altura >= 1.80";
             break;
 
@@ -129,15 +128,15 @@ if(!empty($parametros)):
 
         switch($parametros['peso']):
 
-            case 1:
+            case 'abaixo_peso':
                 $sql.=" and peso < 70";
             break;
 
-            case 2:
+            case 'peso_ideal':
                 $sql.=" and peso >= 70 and peso <= 89";
             break;
 
-            case 3:
+            case 'acima_peso':
                 $sql.=" and peso >= 90";
             break;
 
@@ -149,11 +148,11 @@ if(!empty($parametros)):
 
         switch($parametros['intolerancia']):
 
-            case 0:
+            case 'nao_intolerante':
                 $sql.=" and intolerancia = 0";
             break;
 
-            case 1:
+            case 'intolerante':
                 $sql.=" and intolerancia = 1";
             break;
 
@@ -165,11 +164,11 @@ if(!empty($parametros)):
 
         switch($parametros['atleta']):
 
-            case 0:
+            case 'nao_atleta':
                 $sql.=" and atleta = 0";
             break;
 
-            case 1:
+            case 'atleta':
                 $sql.=" and atleta = 1";
             break;
 
