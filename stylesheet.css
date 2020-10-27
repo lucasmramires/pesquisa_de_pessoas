@@ -39,7 +39,15 @@
     text-align: center;
 }
 
-.search_box{
+#filter_types{
+    text-align: left !important;
+}
+
+#global_form{
+    text-align: center;
+}
+
+#pag{
     float: right;
-    
+    padding-right: 150px;
 }

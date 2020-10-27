@@ -11,14 +11,12 @@ include_once 'includes/header.php';
         <h3 id="title1">Dados da Pesquisa</h3>
     </div>
 </div>
-
-<form>
+<form id="global_form">  
     <div>
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-filter" aria-hidden="true">Filtros</i></a>
         <button class="btn btn-info" type="submit">Aplicar</button>
-
     </div>
-    <div class="collapse" id="collapseExample">
+    <div class="collapse filter_types" id="collapseExample">
         <p>
         <span>Altura </span>
         <div class="form-check form-check-inline">
@@ -73,12 +71,10 @@ include_once 'includes/header.php';
         </p>
     </div>
 </form>
-<p>
-<form action="index.php" class="form-inline mt-2 mt-md-0" id="search_box">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="nome">
-        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+<form action="index.php" class="form-inline mt-2 mt-md-0" id="global_form">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="nome">
+    <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
 </form>
-</p>
 <div class="row" id="background">
     <div class="col s12 m6 push-m3">
         <table class="table table-striped table-hover">
