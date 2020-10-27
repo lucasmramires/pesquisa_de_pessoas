@@ -7,7 +7,7 @@ include_once 'includes/header.php';
 ?>
 
 <div class="row" id="background">
-    <div class="col s3 m6 push-m3">
+    <div class="col s12 m6 push-m3">
         <h3 id="title1">Dados da Pesquisa</h3>
     </div>
 </div>
@@ -19,8 +19,8 @@ include_once 'includes/header.php';
     <div class="collapse filter_types" id="collapseExample">
         <p>
         <span>Altura </span>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input with-gap" type="radio" name="altura" id="alt_alto" value="alto" >
+        <div class="form-check form-check-inline ind_form">
+            <input class="form-check-input" type="radio" name="altura" id="alt_alto" value="alto" >
             <label class="form-check-label" for="alt_alto">Alto</label>
         </div>
         <div class="form-check form-check-inline">
@@ -71,19 +71,23 @@ include_once 'includes/header.php';
         </p>
     </div>
 </form>
-<form action="index.php" class="form-inline mt-2 mt-md-0" id="global_form">
-    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="nome">
-    <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+<p>
+<form action="index.php" class="form-inline mt-2 mt-md-0" id="search_box">
+    <div class="container">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="nome">
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+    </div>
 </form>
+</p>
 <div class="row" id="background">
     <div class="col s12 m6 push-m3">
-        <table class="table table-striped table-hover">
+        <table class="table table-hover table-borderless table-xl">
             <thead class="thead-light">
                 <tr>
-                    <th class="coluna"><input type="checkbox" onClick="toggle(this)" /> Selecionar Tudo<br/></th>
+                    <th class="coluna2"><input type="checkbox" onClick="toggle(this)" /> Sel. Tudo<br/></th>
                     <th class="coluna">Nome</th>
-                    <th class="coluna">Altura (m)</th>
-                    <th class="coluna">Intolerância a Lactose</th>
+                    <th class="coluna2">Altura (m)</th>
+                    <th class="coluna2">Intolerância a Lactose</th>
                     <th class="coluna">Peso (kg)</th>
                     <th class="coluna">Atleta</th>
                 </tr>
@@ -95,10 +99,10 @@ include_once 'includes/header.php';
                 while($dados = mysqli_fetch_array($resultado)):
                 ?>
                 <tr>
-                    <td class="coluna"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="check"></td>
+                    <td class="coluna2"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="check"></td>
                     <td class="coluna"><?php echo $dados['nome']; ?></td>
-                    <td class="coluna"><?php echo $dados['altura']; ?></td>
-                    <td class="coluna"><?php echo ($dados['intolerancia'] == 0) ? "Não" : "Sim"; ?></td>
+                    <td class="coluna2"><?php echo $dados['altura']; ?></td>
+                    <td class="coluna2"><?php echo ($dados['intolerancia'] == 0) ? "Não" : "Sim"; ?></td>
                     <td class="coluna"><?php echo $dados['peso']; ?></td>
                     <td class="coluna"><?php echo ($dados['atleta'] == 0) ? "Não" : "Sim"; ?></td>
                 </tr>

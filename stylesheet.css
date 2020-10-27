@@ -1,5 +1,6 @@
 #background{
     background-color: rgb(255, 255, 255);
+    height: 10vh;
 }
 
 #title1{
@@ -30,13 +31,20 @@
     display: flex;
 }
 
-
 #table{
     text-align: center;
 }
 
 .coluna{
+    text-align: left;
+}
+
+.coluna2{
     text-align: center;
+}
+
+.coluna3{
+    text-align: right;
 }
 
 #filter_types{
@@ -44,10 +52,31 @@
 }
 
 #global_form{
+    position: relative;
     text-align: center;
+    margin-right: 33%;
 }
 
 #pag{
     float: right;
     padding-right: 150px;
+}
+
+.table{
+    max-width: 800px;
+    margin:auto;
+}
+
+#search_box{
+    position: relative;
+    top: 30%;
+    left: 35%;
+}
+
+#ind_form{
+    text-align: left !important;
+}
+
+#title1{
+    margin-top: 20px;
 }
