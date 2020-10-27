@@ -1,7 +1,45 @@
 #background{
-    background-color: rgb(190, 233, 233);
+    background-color: rgb(255, 255, 255);
 }
 
 #title1{
     text-align: center;
+}
+
+#altura{
+    text-align: right;
+}
+
+#apply_button{
+    float:right;
+}
+
+#form{
+    text-align: center;
+}
+
+#options{
+    padding-left: 5px;
+}
+
+#lateral{
+    display: flex;
+}
+
+#lateral{
+    display: flex;
+}
+
+
+#table{
+    text-align: center;
+}
+
+.coluna{
+    text-align: center;
+}
+
+.search_box{
+    float: right;
+    
 }
