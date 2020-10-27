@@ -6,72 +6,87 @@ include_once 'php_action/db_connect.php';
 include_once 'includes/header.php';
 ?>
 
-<div class="row">
-    <div class="col s12 m6 push-m3">
-        <h3>Dados das Pessoas</h3>
-        <form action="index.php">
-            <p>
-            <label>
-                <input class="with-gap" name="altura" type="radio" value="alto">
-                <span>Altos</span>
-            </label>
-            <label>
-                <input class="with-gap" name="altura" type="radio" value="medio"/>
-                <span>Medianos</span>
-            </label>
-            <label>
-                <input class="with-gap" name="altura" type="radio" value="baixo"/>
-                <span>Baixos</span>
-            </label>
-            </p>
-            <p>
-                <label>
-                    <input class="with-gap" name="peso" type="radio" value="acima_peso"/>
-                    <span>Acima do Peso</span>
-                </label>
-                <label>
-                    <input class="with-gap" name="peso" type="radio" value="peso_ideal"/>
-                    <span>Peso Ideal</span>
-                </label>
-                <label>
-                    <input class="with-gap" name="peso" type="radio" value="baixo_peso"/>
-                    <span>Abaixo do Peso</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input class="with-gap" name="intolerancia" type="radio" value="intolerante"/>
-                    <span>Intolerante</span>
-                </label>
-                <label>
-                    <input class="with-gap" name="intolerancia" type="radio" value="nao_intolerante"/>
-                    <span>Não Intolerante</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input class="with-gap" name="atleta" type="radio" value="atleta"/>
-                    <span>É atleta</span>
-                </label>
-                <label>
-                    <input class="with-gap" name="atleta" type="radio" value="nao_atleta"/>
-                    <span>Não é Atleta</span>
-                </label>
-            </p>
-            <button type="submit" class="waves-effect waves-light btn">Aplicar</button>
-        </form>
+<div class="row" id="background">
+    <div class="col s3 m6 push-m3">
+        <h3 id="title1">Dados da Pesquisa</h3>
+    </div>
+</div>
 
-        <table class="striped">
-            <thead>
+<form>
+    <div>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-filter" aria-hidden="true">Filtros</i></a>
+        <button class="btn btn-info" type="submit">Aplicar</button>
+
+    </div>
+    <div class="collapse" id="collapseExample">
+        <p>
+        <span>Altura </span>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input with-gap" type="radio" name="altura" id="alt_alto" value="alto" >
+            <label class="form-check-label" for="alt_alto">Alto</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input with-gap" type="radio" name="altura" id="alt_medio" value="medio">
+            <label class="form-check-label" for="alt_medio">Média Estatura</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input with-gap" type="radio" name="altura" id="alt_baixo" value="baixo">
+            <label class="form-check-label" for="alt_baixo">Baixo</label>
+        </div>
+        </p>
+        <p>
+        <span>Peso </span> 
+        <div class="form-check form-check-inline">
+            <input class="form-check-input with-gap" type="radio" name="peso" id="acima_peso" value="acima_peso" >
+            <label class="form-check-label" for="acima_peso">Acima do Peso</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input with-gap" type="radio" name="peso" id="peso_ideal" value="peso_ideal">
+            <label class="form-check-label" for="peso_ideal">Peso Ideal</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input with-gap" type="radio" name="peso" id="baixo_peso" value="baixo_peso">
+            <label class="form-check-label" for="baixo_peso">Abaixo do Peso</label>
+        </div>        
+        </p>
+        <p>
+        <span>Intolerância a Lactose </span>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input with-gap" type="radio" name="intolerancia" id="intolerante" value="intolerante" >
+            <label class="form-check-label" for="intolerante">Intolerante</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input with-gap" type="radio" name="intolerancia" id="nao_intolerante" value="nao_intolerante">
+            <label class="form-check-label" for="nao_intolerante">Não Intolerante</label>
+        </div>
+        </p>
+        <p>
+        <span>Atleta </span>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input with-gap" type="radio" name="atleta" id="atleta" value="atleta" >
+            <label class="form-check-label" for="atleta">Atleta</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input with-gap" type="radio" name="atleta" id="nao_atleta" value="nao_atleta">
+            <label class="form-check-label" for="nao_atleta">Não Atleta</label>
+        </div>
+        </p>
+    </div>
+</form>
+
+<div class="row" id="background">
+    <div class="col s12 m6 push-m3">
+        <table class="table table-striped table-hover">
+            <thead class="thead-light">
                 <tr>
-                    <th>Nome</th>
-                    <th>Altura</th>
-                    <th>Intolerância a Lactose</th>
-                    <th>Peso</th>
-                    <th>Atleta</th>
+                    <th class="coluna"><input type="checkbox" onClick="toggle(this)" /> Selecionar Tudo<br/></th>
+                    <th class="coluna">Nome</th>
+                    <th class="coluna">Altura (m)</th>
+                    <th class="coluna">Intolerância a Lactose</th>
+                    <th class="coluna">Peso (kg)</th>
+                    <th class="coluna">Atleta</th>
                 </tr>
             </thead>
-
             <tbody>
 
                 <?php
@@ -79,11 +94,12 @@ include_once 'includes/header.php';
                 while($dados = mysqli_fetch_array($resultado)):
                 ?>
                 <tr>
-                    <td><?php echo $dados['nome']; ?></td>
-                    <td><?php echo $dados['altura']; ?></td>
-                    <td><?php echo ($dados['intolerancia'] == 0) ? "Não" : "Sim"; ?></td>
-                    <td><?php echo $dados['peso']; ?></td>
-                    <td><?php echo $dados['atleta']; ?></td>
+                    <td class="coluna"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="check"></td>
+                    <td class="coluna"><?php echo $dados['nome']; ?></td>
+                    <td class="coluna"><?php echo $dados['altura']; ?></td>
+                    <td class="coluna"><?php echo ($dados['intolerancia'] == 0) ? "Não" : "Sim"; ?></td>
+                    <td class="coluna"><?php echo $dados['peso']; ?></td>
+                    <td class="coluna"><?php echo ($dados['atleta'] == 0) ? "Não" : "Sim"; ?></td>
                 </tr>
                 <?php endwhile; ?>
 
@@ -156,8 +172,7 @@ if(!empty($parametros)):
                 $sql.=" and intolerancia = 1";
             break;
 
-        endswitch;
-
+        endswitch;    
     endif;
 
     if(isset($parametros['atleta'])):
@@ -172,14 +187,17 @@ if(!empty($parametros)):
                 $sql.=" and atleta = 1";
             break;
 
-        endswitch;
+        endswitch;    
+
+    endif;
+
+    if(isset($parametros['nome'])):
+
+        $sql.=" and nome like '%" . $parametros['nome'] . "%'";
 
     endif;
 
 endif;
-
 return mysqli_query($connect, $sql);
-
 }
-
 ?>
