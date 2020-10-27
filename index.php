@@ -73,7 +73,12 @@ include_once 'includes/header.php';
         </p>
     </div>
 </form>
-
+<p>
+<form action="index.php" class="form-inline mt-2 mt-md-0" id="search_box">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="nome">
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+</form>
+</p>
 <div class="row" id="background">
     <div class="col s12 m6 push-m3">
         <table class="table table-striped table-hover">
@@ -201,3 +206,12 @@ endif;
 return mysqli_query($connect, $sql);
 }
 ?>
+
+<script language="JavaScript">
+function toggle(source) {
+  checkboxes = document.getElementsByName('check');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+</script>
