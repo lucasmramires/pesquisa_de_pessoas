@@ -57,13 +57,19 @@
     margin-right: 33%;
 }
 
+.filters{
+    position: relative;
+    text-align: left;
+    margin-left: 30%;
+}
+
 #pag{
     float: right;
     padding-right: 150px;
 }
 
 .table{
-    max-width: 800px;
+    max-width: 900px;
     margin:auto;
 }
 

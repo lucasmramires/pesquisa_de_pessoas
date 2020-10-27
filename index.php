@@ -11,14 +11,14 @@ include_once 'includes/header.php';
         <h3 id="title1">Dados da Pesquisa</h3>
     </div>
 </div>
-<form id="global_form">  
-    <div>
-        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-filter" aria-hidden="true">Filtros</i></a>
-        <button class="btn btn-info" type="submit">Aplicar</button>
+<form class="filters">  
+    <div >
+        <a class="btn btn-primary align-baseline" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-filter" aria-hidden="true">Filtros</i></a>
+        <button class="btn btn-warning" type="submit">Limpar Filtros</button>
+
     </div>
     <div class="collapse filter_types" id="collapseExample">
-        <p>
-        <span>Altura </span>
+        <span><b>Altura: </b></span>
         <div class="form-check form-check-inline ind_form">
             <input class="form-check-input" type="radio" name="altura" id="alt_alto" value="alto" >
             <label class="form-check-label" for="alt_alto">Alto</label>
@@ -31,9 +31,9 @@ include_once 'includes/header.php';
             <input class="form-check-input with-gap" type="radio" name="altura" id="alt_baixo" value="baixo">
             <label class="form-check-label" for="alt_baixo">Baixo</label>
         </div>
-        </p>
         <p>
-        <span>Peso </span> 
+        </p>
+        <span><b>Peso: </b></span> 
         <div class="form-check form-check-inline">
             <input class="form-check-input with-gap" type="radio" name="peso" id="acima_peso" value="acima_peso" >
             <label class="form-check-label" for="acima_peso">Acima do Peso</label>
@@ -46,9 +46,9 @@ include_once 'includes/header.php';
             <input class="form-check-input with-gap" type="radio" name="peso" id="baixo_peso" value="baixo_peso">
             <label class="form-check-label" for="baixo_peso">Abaixo do Peso</label>
         </div>        
-        </p>
         <p>
-        <span>Intolerância a Lactose </span>
+        </p>
+        <span><b>Intolerância a Lactose: </b></span>
         <div class="form-check form-check-inline">
             <input class="form-check-input with-gap" type="radio" name="intolerancia" id="intolerante" value="intolerante" >
             <label class="form-check-label" for="intolerante">Intolerante</label>
@@ -57,9 +57,9 @@ include_once 'includes/header.php';
             <input class="form-check-input with-gap" type="radio" name="intolerancia" id="nao_intolerante" value="nao_intolerante">
             <label class="form-check-label" for="nao_intolerante">Não Intolerante</label>
         </div>
-        </p>
         <p>
-        <span>Atleta </span>
+        </p>
+        <span><b>Atleta: </b></span>
         <div class="form-check form-check-inline">
             <input class="form-check-input with-gap" type="radio" name="atleta" id="atleta" value="atleta" >
             <label class="form-check-label" for="atleta">Atleta</label>
@@ -69,6 +69,7 @@ include_once 'includes/header.php';
             <label class="form-check-label" for="nao_atleta">Não Atleta</label>
         </div>
         </p>
+        <button class="btn btn-info" type="submit">Aplicar</button>
     </div>
 </form>
 <p>
