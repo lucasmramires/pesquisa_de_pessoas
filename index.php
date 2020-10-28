@@ -6,17 +6,13 @@ include_once 'php_action/db_connect.php';
 include_once 'includes/header.php';
 ?>
 
-<div class="row" id="background">
-    <div class="col s12 m6 push-m3">
-        <h3 id="title1">Dados da Pesquisa</h3>
-    </div>
-</div>
-<form class="filters">  
-    <div >
-        <a class="btn btn-primary align-baseline" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-filter" aria-hidden="true">Filtros</i></a>
+<form class="filters">
+    <p>
+    <div>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-filter" aria-hidden="true">Filtros</i></a>
         <button class="btn btn-warning" type="submit">Limpar Filtros</button>
-
     </div>
+    </p>
     <div class="collapse filter_types" id="collapseExample">
         <span><b>Altura: </b></span>
         <div class="form-check form-check-inline ind_form">
@@ -77,6 +73,7 @@ include_once 'includes/header.php';
     <div class="container">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="nome">
         <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn btn-primary my-2 my-sm-0 add_person" type="submit">Adicionar Pessoa</button>
     </div>
 </form>
 </p>
@@ -91,6 +88,7 @@ include_once 'includes/header.php';
                     <th class="coluna2">Intolerância a Lactose</th>
                     <th class="coluna">Peso (kg)</th>
                     <th class="coluna">Atleta</th>
+                    <th class="coluna2">Ações </th>
                 </tr>
             </thead>
             <tbody>
@@ -99,13 +97,15 @@ include_once 'includes/header.php';
                 $resultado = filtro($connect, $_GET);
                 while($dados = mysqli_fetch_array($resultado)):
                 ?>
-                <tr>
+                <tr class="shadow-lg p-3 mb-5 bg-white rounded">
                     <td class="coluna2"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="check"></td>
-                    <td class="coluna"><?php echo $dados['nome']; ?></td>
+                    <td class="coluna "><?php echo $dados['nome']; ?></td>
                     <td class="coluna2"><?php echo $dados['altura']; ?></td>
                     <td class="coluna2"><?php echo ($dados['intolerancia'] == 0) ? "Não" : "Sim"; ?></td>
-                    <td class="coluna"><?php echo $dados['peso']; ?></td>
-                    <td class="coluna"><?php echo ($dados['atleta'] == 0) ? "Não" : "Sim"; ?></td>
+                    <td class="coluna2"><?php echo $dados['peso']; ?></td>
+                    <td class="coluna2"><?php echo ($dados['atleta'] == 0) ? "Não" : "Sim"; ?></td>
+                    <td><a class="btn btn-info" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-pencil-square-o" aria-hidden="true"> Editar</i></a>
+                    <a class="btn btn-danger" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-times" aria-hidden="true"></i> Deletar</i></a></td>
                 </tr>
                 <?php endwhile; ?>
 

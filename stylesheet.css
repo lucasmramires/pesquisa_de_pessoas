@@ -49,6 +49,7 @@
 
 #filter_types{
     text-align: left !important;
+    
 }
 
 #global_form{
@@ -60,7 +61,7 @@
 .filters{
     position: relative;
     text-align: left;
-    margin-left: 30%;
+    margin-left: 24%;
 }
 
 #pag{
@@ -69,14 +70,18 @@
 }
 
 .table{
-    max-width: 900px;
+    max-width: 1000px;
     margin:auto;
 }
 
 #search_box{
     position: relative;
     top: 30%;
-    left: 35%;
+    margin-left: 6%;
+}
+
+.add_person{
+    margin-left: 45%;
 }
 
 #ind_form{
@@ -86,3 +91,4 @@
 #title1{
     margin-top: 20px;
 }
+
