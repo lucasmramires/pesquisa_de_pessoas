@@ -39,7 +39,7 @@ include_once 'includes/header.php';
             <label class="form-check-label" for="peso_ideal">Peso Ideal</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input with-gap" type="radio" name="peso" id="baixo_peso" value="baixo_peso">
+            <input class="form-check-input with-gap" type="radio" name="peso" id="abaixo_peso" value="abaixo_peso">
             <label class="form-check-label" for="baixo_peso">Abaixo do Peso</label>
         </div>        
         <p>
